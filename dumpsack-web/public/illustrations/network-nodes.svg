@@ -1,0 +1,95 @@
+<svg width="500" height="400" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Abstract Network Nodes Illustration -->
+  
+  <!-- Connection Lines -->
+  <g opacity="0.3">
+    <line x1="100" y1="100" x2="250" y2="200" stroke="url(#line-gradient)" stroke-width="2"/>
+    <line x1="250" y1="200" x2="400" y2="100" stroke="url(#line-gradient)" stroke-width="2"/>
+    <line x1="100" y1="100" x2="150" y2="300" stroke="url(#line-gradient)" stroke-width="2"/>
+    <line x1="400" y1="100" x2="350" y2="300" stroke="url(#line-gradient)" stroke-width="2"/>
+    <line x1="150" y1="300" x2="250" y2="200" stroke="url(#line-gradient)" stroke-width="2"/>
+    <line x1="350" y1="300" x2="250" y2="200" stroke="url(#line-gradient)" stroke-width="2"/>
+  </g>
+  
+  <!-- Nodes -->
+  <!-- Center Node (Main) -->
+  <g filter="url(#node-glow)">
+    <circle cx="250" cy="200" r="40" fill="url(#node-gradient)" stroke="#8EFF60" stroke-width="2"/>
+    <circle cx="250" cy="200" r="25" fill="rgba(142, 255, 96, 0.2)"/>
+    <circle cx="250" cy="200" r="12" fill="#8EFF60"/>
+  </g>
+  
+  <!-- Top Left Node -->
+  <g filter="url(#node-glow-small)">
+    <circle cx="100" cy="100" r="30" fill="url(#node-gradient)" stroke="rgba(142, 255, 96, 0.6)" stroke-width="2"/>
+    <circle cx="100" cy="100" r="15" fill="rgba(142, 255, 96, 0.3)"/>
+  </g>
+  
+  <!-- Top Right Node -->
+  <g filter="url(#node-glow-small)">
+    <circle cx="400" cy="100" r="30" fill="url(#node-gradient)" stroke="rgba(142, 255, 96, 0.6)" stroke-width="2"/>
+    <circle cx="400" cy="100" r="15" fill="rgba(142, 255, 96, 0.3)"/>
+  </g>
+  
+  <!-- Bottom Left Node -->
+  <g filter="url(#node-glow-small)">
+    <circle cx="150" cy="300" r="25" fill="url(#node-gradient)" stroke="rgba(142, 255, 96, 0.5)" stroke-width="2"/>
+    <circle cx="150" cy="300" r="12" fill="rgba(142, 255, 96, 0.3)"/>
+  </g>
+  
+  <!-- Bottom Right Node -->
+  <g filter="url(#node-glow-small)">
+    <circle cx="350" cy="300" r="25" fill="url(#node-gradient)" stroke="rgba(142, 255, 96, 0.5)" stroke-width="2"/>
+    <circle cx="350" cy="300" r="12" fill="rgba(142, 255, 96, 0.3)"/>
+  </g>
+  
+  <!-- Floating Particles -->
+  <circle cx="180" cy="150" r="3" fill="#8EFF60" opacity="0.6">
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="320" cy="250" r="3" fill="#8EFF60" opacity="0.6">
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="200" cy="280" r="2" fill="rgba(142, 255, 96, 0.8)" opacity="0.5">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Definitions -->
+  <defs>
+    <!-- Line Gradient -->
+    <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(142, 255, 96, 0.4)"/>
+      <stop offset="50%" stop-color="rgba(142, 255, 96, 0.1)"/>
+      <stop offset="100%" stop-color="rgba(142, 255, 96, 0.4)"/>
+    </linearGradient>
+    
+    <!-- Node Gradient -->
+    <radialGradient id="node-gradient">
+      <stop offset="0%" stop-color="rgba(142, 255, 96, 0.15)"/>
+      <stop offset="100%" stop-color="rgba(10, 18, 10, 0.8)"/>
+    </radialGradient>
+    
+    <!-- Node Glow (Main) -->
+    <filter id="node-glow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feFlood flood-color="#8EFF60" flood-opacity="0.4"/>
+      <feComposite in2="blur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Node Glow (Small) -->
+    <filter id="node-glow-small" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feFlood flood-color="#8EFF60" flood-opacity="0.3"/>
+      <feComposite in2="blur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+</svg>
+

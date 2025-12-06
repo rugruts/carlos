@@ -1,0 +1,89 @@
+<svg width="600" height="700" viewBox="0 0 600 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Premium Wallet Dashboard Mockup -->
+  
+  <!-- Device Frame with Glass Effect -->
+  <g filter="url(#glow)">
+    <rect x="50" y="50" width="500" height="600" rx="40" fill="url(#glass-gradient)" stroke="url(#border-gradient)" stroke-width="2"/>
+  </g>
+  
+  <!-- Screen Content -->
+  <g clip-path="url(#screen-clip)">
+    <!-- Header Bar -->
+    <rect x="70" y="70" width="460" height="60" rx="12" fill="rgba(142, 255, 96, 0.05)"/>
+    <circle cx="100" cy="100" r="15" fill="#8EFF60" opacity="0.3"/>
+    <rect x="130" y="90" width="120" height="8" rx="4" fill="rgba(255, 255, 255, 0.2)"/>
+    <rect x="130" y="105" width="80" height="6" rx="3" fill="rgba(150, 160, 151, 0.5)"/>
+    
+    <!-- Balance Card -->
+    <rect x="70" y="150" width="460" height="140" rx="20" fill="url(#card-gradient)" stroke="rgba(142, 255, 96, 0.12)" stroke-width="1"/>
+    <rect x="90" y="170" width="100" height="12" rx="6" fill="rgba(150, 160, 151, 0.4)"/>
+    <rect x="90" y="200" width="200" height="32" rx="8" fill="rgba(255, 255, 255, 0.9)"/>
+    <rect x="90" y="245" width="140" height="20" rx="10" fill="rgba(142, 255, 96, 0.2)"/>
+    
+    <!-- Token List -->
+    <rect x="70" y="310" width="460" height="80" rx="16" fill="url(#card-gradient)" stroke="rgba(142, 255, 96, 0.08)" stroke-width="1"/>
+    <circle cx="100" cy="350" r="20" fill="rgba(142, 255, 96, 0.15)"/>
+    <rect x="135" y="335" width="100" height="10" rx="5" fill="rgba(255, 255, 255, 0.7)"/>
+    <rect x="135" y="355" width="60" height="8" rx="4" fill="rgba(150, 160, 151, 0.5)"/>
+    <rect x="450" y="340" width="60" height="20" rx="10" fill="rgba(142, 255, 96, 0.1)"/>
+    
+    <rect x="70" y="410" width="460" height="80" rx="16" fill="url(#card-gradient)" stroke="rgba(142, 255, 96, 0.08)" stroke-width="1"/>
+    <circle cx="100" cy="450" r="20" fill="rgba(80, 200, 60, 0.15)"/>
+    <rect x="135" y="435" width="100" height="10" rx="5" fill="rgba(255, 255, 255, 0.7)"/>
+    <rect x="135" y="455" width="60" height="8" rx="4" fill="rgba(150, 160, 151, 0.5)"/>
+    <rect x="450" y="440" width="60" height="20" rx="10" fill="rgba(142, 255, 96, 0.1)"/>
+    
+    <!-- Action Buttons -->
+    <rect x="70" y="520" width="220" height="50" rx="12" fill="#8EFF60" opacity="0.9"/>
+    <rect x="310" y="520" width="220" height="50" rx="12" fill="rgba(142, 255, 96, 0.1)" stroke="rgba(142, 255, 96, 0.3)" stroke-width="2"/>
+  </g>
+  
+  <!-- Plasma Glow Effect -->
+  <ellipse cx="300" cy="350" rx="280" ry="320" fill="url(#plasma-glow)" opacity="0.4"/>
+  
+  <!-- Definitions -->
+  <defs>
+    <!-- Glass Gradient -->
+    <linearGradient id="glass-gradient" x1="50" y1="50" x2="550" y2="650">
+      <stop offset="0%" stop-color="rgba(10, 18, 10, 0.4)"/>
+      <stop offset="100%" stop-color="rgba(5, 10, 5, 0.6)"/>
+    </linearGradient>
+    
+    <!-- Border Gradient -->
+    <linearGradient id="border-gradient" x1="50" y1="50" x2="550" y2="650">
+      <stop offset="0%" stop-color="rgba(142, 255, 96, 0.3)"/>
+      <stop offset="50%" stop-color="rgba(142, 255, 96, 0.1)"/>
+      <stop offset="100%" stop-color="rgba(142, 255, 96, 0.2)"/>
+    </linearGradient>
+    
+    <!-- Card Gradient -->
+    <linearGradient id="card-gradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.03)"/>
+      <stop offset="100%" stop-color="rgba(255, 255, 255, 0.01)"/>
+    </linearGradient>
+    
+    <!-- Plasma Glow -->
+    <radialGradient id="plasma-glow">
+      <stop offset="0%" stop-color="rgba(142, 255, 96, 0.2)"/>
+      <stop offset="60%" stop-color="rgba(80, 200, 60, 0.1)"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    
+    <!-- Glow Filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feFlood flood-color="#8EFF60" flood-opacity="0.15"/>
+      <feComposite in2="blur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Screen Clip Path -->
+    <clipPath id="screen-clip">
+      <rect x="70" y="70" width="460" height="560" rx="30"/>
+    </clipPath>
+  </defs>
+</svg>
+
