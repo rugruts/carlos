@@ -3,6 +3,14 @@ node_modules/
 .dumpsack-web/
 .dumpsack-web.zip
 
+# Large files that exceed GitHub limits
+*.zip
+*.rar
+*.7z
+*.tar
+*.tar.gz
+*.tgz
+
 # Environment files
 .env
 .env.local
