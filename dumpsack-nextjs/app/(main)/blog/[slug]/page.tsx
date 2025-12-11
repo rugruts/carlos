@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Calendar, Clock, ArrowLeft } from 'lucide-react';
+import { Calendar, Clock, ArrowLeft, ArrowRight } from 'lucide-react';
 import { notFound } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 

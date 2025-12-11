@@ -14,11 +14,11 @@ export default function DevelopersPage() {
     setFormStatus('sending');
 
     try {
-      await sendSupportMessage({
-        email: formData.email,
-        subject: `[Developer] ${formData.subject}`,
-        message: formData.message,
-      });
+      await sendSupportMessage(
+        formData.email,
+        `[Developer] ${formData.subject}`,
+        formData.message
+      );
       setFormStatus('success');
       setFormData({ email: '', subject: '', message: '' });
 
