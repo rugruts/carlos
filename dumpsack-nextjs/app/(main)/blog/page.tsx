@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
-import { supabase } from '@/lib/supabase';
 
 type BlogPost = {
   id: string;
@@ -42,13 +41,10 @@ export default function BlogPage() {
 
   const fetchBlogPosts = async () => {
     try {
-      const { data, error } = await supabase
-        .from('blog_posts')
-        .select('*')
-        .eq('status', 'published')
-        .order('published_at', { ascending: false });
+      const res = await fetch('/api/blog');
+      if (!res.ok) throw new Error('Failed to fetch posts');
 
-      if (error) throw error;
+      const data = await res.json();
       setBlogPosts(data || []);
       setFilteredPosts(data || []);
     } catch (error) {

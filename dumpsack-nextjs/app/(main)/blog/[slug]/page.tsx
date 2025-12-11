@@ -2,30 +2,28 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Calendar, Clock, ArrowLeft, ArrowRight } from 'lucide-react';
 import { notFound } from 'next/navigation';
-import { supabase } from '@/lib/supabase';
 
 async function getBlogPost(slug: string) {
-  const { data, error } = await supabase
-    .from('blog_posts')
-    .select('*')
-    .eq('slug', slug)
-    .eq('status', 'published')
-    .single();
+  try {
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL || process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : 'http://localhost:3000';
 
-  if (error || !data) return null;
-  return data;
+    const res = await fetch(`${baseUrl}/api/blog/${slug}`, {
+      cache: 'no-store'
+    });
+
+    if (!res.ok) return null;
+
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching blog post:', error);
+    return null;
+  }
 }
 
-async function getAllPublishedSlugs() {
-  const { data } = await supabase
-    .from('blog_posts')
-    .select('slug')
-    .eq('status', 'published');
-
-  return data || [];
-}
-
-// Fallback mock data for development
+// Fallback mock data for development (not used anymore)
 const blogPosts: Record<string, {
   title: string;
   date: string;
@@ -221,10 +219,25 @@ Experience multi-chain done right. [Download DumpSack](/download).
 };
 
 export async function generateStaticParams() {
-  const slugs = await getAllPublishedSlugs();
-  return slugs.map((item) => ({
-    slug: item.slug,
-  }));
+  try {
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL || process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : 'http://localhost:3000';
+
+    const res = await fetch(`${baseUrl}/api/blog`, {
+      cache: 'no-store'
+    });
+
+    if (!res.ok) return [];
+
+    const posts = await res.json();
+    return posts.map((post: { slug: string }) => ({
+      slug: post.slug,
+    }));
+  } catch (error) {
+    console.error('Error generating static params:', error);
+    return [];
+  }
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
